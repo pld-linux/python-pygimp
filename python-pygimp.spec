@@ -44,23 +44,19 @@ rm -rf $RPM_BUILD_ROOT
 
 echo %{module} > $RPM_BUILD_ROOT%{python_sitepkgsdir}/%{module}.pth
 
-gzip -9nf README NEWS COPYING
 install -d html
 install doc/*.html html
 
 %files
 %defattr(644,root,root,755)
-
 %{python_sitepkgsdir}/%{module}.pth
 %dir %{python_sitepkgsdir}/%{module}
-
 %attr(755,root,root) %{python_sitepkgsdir}/%{module}/gimpmodule.so
 %{python_sitepkgsdir}/%{module}/gimpenums.py?
 %{python_sitepkgsdir}/%{module}/gimpfu.py?
 %{python_sitepkgsdir}/%{module}/gimpplugin.py?
 %{python_sitepkgsdir}/%{module}/gimpshelf.py?
 %{python_sitepkgsdir}/%{module}/gimpui.py?
-
 %attr(755,root,root) %{gimp_plugin_dir}/clothify.py
 %attr(755,root,root) %{gimp_plugin_dir}/foggify.py
 %attr(755,root,root) %{gimp_plugin_dir}/gimpcons.py
@@ -69,8 +65,7 @@ install doc/*.html html
 %attr(755,root,root) %{gimp_plugin_dir}/shadow_bevel.py
 %attr(755,root,root) %{gimp_plugin_dir}/sphere.py
 %attr(755,root,root) %{gimp_plugin_dir}/whirlpinch.py
-
-%doc {README,NEWS,COPYING}.gz html
+%doc README NEWS COPYING html
 
 %clean
 rm -rf $RPM_BUILD_ROOT
