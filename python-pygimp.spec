@@ -1,9 +1,5 @@
-
-%define python_sitepkgsdir %(echo `python -c "import sys; print (sys.prefix + '/lib/python' + sys.version[:3] + '/site-packages/')"`)
-%define gimp_plugin_dir %{_prefix}/lib/gimp/1.2/plug-ins
-
-%define module pygimp
-
+%include	/usr/lib/rpm/macros.python
+%define module	pygimp
 Summary:	A python extension allowing you to write Gimp plugins in Python
 Summary(pl):	Rozszerzenie Pythona pozwalaj±ce na pisanie wtyczek do Gimpa w Pythonie
 Name:		python-%{module}
@@ -12,10 +8,14 @@ Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.daa.com.au/pub/james/pygimp/%{module}-%{version}.tar.gz
+BuildRequires:	gimp-devel
+BuildRequires:	rpm-pythonprov
 Requires:	gimp
 Requires:	python
-BuildRequires:	gimp-devel
+%pyrequires_eq	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		gimp_plugin_dir	%(gimp-config --gimpplugindir)/plug-ins
 
 %description
 pygimp allows you to write Gimp plugins with the python language.
@@ -25,8 +25,11 @@ functionality that C plugins have, including direct pixel manipulation
 that is required for many plugins.
 
 %description -l pl
-Modu³ ten umo¿liwia tworzenie wtyczek dla Gimpa za pomoc± jêzyka
-Python.
+Modu³ pygimp umo¿liwia tworzenie wtyczek dla Gimpa za pomoc± jêzyka
+Python. W przeciwieñstwie do skryptów script-fu, które maj± dostêp
+tylko do funkcji w PDB (bazie danych procedur), wtyczki pygimpa maj±
+dostêp do ca³ej funkcjonalno¶ci dostêpnej wtyczkom w C, w³±cznie z
+bezpo¶rednimi operacjami na pikselach, wymaganymi w wielu wtyczkach.
 
 %prep
 %setup -q -n %{module}-%{version}
@@ -46,8 +49,12 @@ echo %{module} > $RPM_BUILD_ROOT%{python_sitepkgsdir}/%{module}.pth
 install -d html
 install doc/*.html html
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %files
 %defattr(644,root,root,755)
+%doc README NEWS COPYING html
 %{python_sitepkgsdir}/%{module}.pth
 %dir %{python_sitepkgsdir}/%{module}
 %attr(755,root,root) %{python_sitepkgsdir}/%{module}/gimpmodule.so
@@ -64,7 +71,3 @@ install doc/*.html html
 %attr(755,root,root) %{gimp_plugin_dir}/shadow_bevel.py
 %attr(755,root,root) %{gimp_plugin_dir}/sphere.py
 %attr(755,root,root) %{gimp_plugin_dir}/whirlpinch.py
-%doc README NEWS COPYING html
-
-%clean
-rm -rf $RPM_BUILD_ROOT
