@@ -1,13 +1,13 @@
 
 %define python_sitepkgsdir %(echo `python -c "import sys; print (sys.prefix + '/lib/python' + sys.version[:3] + '/site-packages/')"`)
 %define _prefix /usr/X11R6
-%define gimp_plugin_dir %{_prefix}/lib/gimp/1.1/plug-ins
+%define gimp_plugin_dir %{_prefix}/lib/gimp/1.2/plug-ins
 
 %define module pygimp
 
 Summary:	A python extension allowing you to write Gimp plugins in Python
 Name:		python-%{module}
-Version:	0.5
+Version:	1.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -38,7 +38,7 @@ Modu³ ten umo¿liwia tworzenie plugin-ów dla Gimpa za pomoc± jêzyka Python.
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install \
-  pythondir=%{python_sitepkgsdir}/%{module} \
+  pysitedir=%{python_sitepkgsdir}/%{module} \
   pyexecdir=%{python_sitepkgsdir}/%{module}
 
 echo %{module} > $RPM_BUILD_ROOT%{python_sitepkgsdir}/%{module}.pth
@@ -54,11 +54,11 @@ install doc/*.html html
 %dir %{python_sitepkgsdir}/%{module}
 
 %attr(755,root,root) %{python_sitepkgsdir}/%{module}/gimpmodule.so
-%{python_sitepkgsdir}/%{module}/gimpenums.py*
-%{python_sitepkgsdir}/%{module}/gimpfu.py*
-%{python_sitepkgsdir}/%{module}/gimpplugin.py*
-%{python_sitepkgsdir}/%{module}/gimpshelf.py*
-%{python_sitepkgsdir}/%{module}/gimpui.py*
+%{python_sitepkgsdir}/%{module}/gimpenums.py?
+%{python_sitepkgsdir}/%{module}/gimpfu.py?
+%{python_sitepkgsdir}/%{module}/gimpplugin.py?
+%{python_sitepkgsdir}/%{module}/gimpshelf.py?
+%{python_sitepkgsdir}/%{module}/gimpui.py?
 
 %attr(755,root,root) %{gimp_plugin_dir}/clothify.py
 %attr(755,root,root) %{gimp_plugin_dir}/foggify.py
