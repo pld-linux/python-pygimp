@@ -9,7 +9,6 @@ Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.daa.com.au/pub/james/pygimp/%{module}-%{version}.tar.gz
 # Source0-md5:	b6fbbc05a9defc7a66a42e3cd63b9bcb
 BuildRequires:	gimp-devel
-BuildRequires:	rpm-pythonprov
 Requires:	gimp
 Requires:	python
 %pyrequires_eq	python
