@@ -6,9 +6,10 @@
 %define module pygimp
 
 Summary:	A python extension allowing you to write Gimp plugins in Python
+Summary(pl):	Rozszerzenie Pythona pozwalaj±ce na pisanie wtyczek do Gimpa w Pythonie
 Name:		python-%{module}
 Version:	1.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Group(de):	X11/Applikationen/Grafik
@@ -27,7 +28,7 @@ functionality that C plugins have, including direct pixel manipulation
 that is required for many plugins.
 
 %description -l pl
-Modu³ ten umo¿liwia tworzenie plugin-ów dla Gimpa za pomoc± jêzyka
+Modu³ ten umo¿liwia tworzenie wtyczek dla Gimpa za pomoc± jêzyka
 Python.
 
 %prep
@@ -40,8 +41,8 @@ Python.
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install \
-  pysitedir=%{python_sitepkgsdir}/%{module} \
-  pyexecdir=%{python_sitepkgsdir}/%{module}
+	pysitedir=%{python_sitepkgsdir}/%{module} \
+	pyexecdir=%{python_sitepkgsdir}/%{module}
 
 echo %{module} > $RPM_BUILD_ROOT%{python_sitepkgsdir}/%{module}.pth
 
