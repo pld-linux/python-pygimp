@@ -5,7 +5,7 @@ Summary(pl):	Rozszerzenie Pythona pozwalaj±ce na pisanie wtyczek do Gimpa w Pyth
 Name:		python-%{module}
 Version:	1.2
 Release:	2
-License:	GPL
+License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.daa.com.au/pub/james/pygimp/%{module}-%{version}.tar.gz
 BuildRequires:	gimp-devel
@@ -54,7 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README NEWS COPYING html
+%doc README NEWS html
 %{python_sitepkgsdir}/%{module}.pth
 %dir %{python_sitepkgsdir}/%{module}
 %attr(755,root,root) %{python_sitepkgsdir}/%{module}/gimpmodule.so
