@@ -1,6 +1,5 @@
 
 %define python_sitepkgsdir %(echo `python -c "import sys; print (sys.prefix + '/lib/python' + sys.version[:3] + '/site-packages/')"`)
-%define _prefix /usr/X11R6
 %define gimp_plugin_dir %{_prefix}/lib/gimp/1.2/plug-ins
 
 %define module pygimp
