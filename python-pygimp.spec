@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.python
 %define	module	pygimp
 Summary:	A Python extension allowing you to write Gimp plugins in Python
 Summary(pl):	Rozszerzenie Pythona pozwalaj±ce na pisanie wtyczek do Gimpa w Pythonie
