@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.python
-%define module	pygimp
-Summary:	A python extension allowing you to write Gimp plugins in Python
+%define	module	pygimp
+Summary:	A Python extension allowing you to write Gimp plugins in Python
 Summary(pl):	Rozszerzenie Pythona pozwalaj±ce na pisanie wtyczek do Gimpa w Pythonie
 Name:		python-%{module}
 Version:	1.2
@@ -19,7 +19,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		gimp_plugin_dir	%(gimptool --gimpplugindir)/plug-ins
 
 %description
-pygimp allows you to write Gimp plugins with the python language.
+pygimp allows you to write Gimp plugins with the Python language.
 Unlike script-fu scripts which only have access to functions in the
 PDB (procedural database), pygimp plugins have access to all
 functionality that C plugins have, including direct pixel manipulation
