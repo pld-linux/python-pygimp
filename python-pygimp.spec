@@ -11,6 +11,7 @@ Version:	1.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
+Group(de):	X11/Applikationen/Grafik
 Group(pl):	X11/Aplikacje/Grafika
 Source0:	ftp://ftp.daa.com.au/pub/james/pygimp/%{module}-%{version}.tar.gz
 Requires:	gimp
@@ -26,14 +27,15 @@ functionality that C plugins have, including direct pixel manipulation
 that is required for many plugins.
 
 %description -l pl
-Modu³ ten umo¿liwia tworzenie plugin-ów dla Gimpa za pomoc± jêzyka Python.
+Modu³ ten umo¿liwia tworzenie plugin-ów dla Gimpa za pomoc± jêzyka
+Python.
 
 %prep
 %setup -q -n %{module}-%{version}
 
 %build
 %configure
-%{__make} OPT="$RPM_OPT_FLAGS"
+%{__make} OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
