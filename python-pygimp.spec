@@ -16,7 +16,7 @@ Requires:	python
 %pyrequires_eq	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		gimp_plugin_dir	%(gimp-config --gimpplugindir)/plug-ins
+%define		gimp_plugin_dir	%(gimptool --gimpplugindir)/plug-ins
 
 %description
 pygimp allows you to write Gimp plugins with the python language.
