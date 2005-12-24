@@ -34,7 +34,7 @@ bezpo¶rednimi operacjami na pikselach, wymaganymi w wielu wtyczkach.
 %setup -q -n %{module}-%{version}
 
 %build
-%configure
+%configure2_13
 %{__make} OPT="%{rpmcflags}"
 
 %install
