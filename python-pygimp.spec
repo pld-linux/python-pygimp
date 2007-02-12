@@ -1,6 +1,6 @@
 %define	module	pygimp
 Summary:	A Python extension allowing you to write Gimp plugins in Python
-Summary(pl):	Rozszerzenie Pythona pozwalaj±ce na pisanie wtyczek do Gimpa w Pythonie
+Summary(pl.UTF-8):   Rozszerzenie Pythona pozwalajÄ…ce na pisanie wtyczek do Gimpa w Pythonie
 Name:		python-%{module}
 Version:	1.2
 Release:	2
@@ -23,12 +23,12 @@ PDB (procedural database), pygimp plugins have access to all
 functionality that C plugins have, including direct pixel manipulation
 that is required for many plugins.
 
-%description -l pl
-Modu³ pygimp umo¿liwia tworzenie wtyczek dla Gimpa za pomoc± jêzyka
-Python. W przeciwieñstwie do skryptów script-fu, które maj± dostêp
-tylko do funkcji w PDB (bazie danych procedur), wtyczki pygimpa maj±
-dostêp do ca³ej funkcjonalno¶ci dostêpnej wtyczkom w C, w³±cznie z
-bezpo¶rednimi operacjami na pikselach, wymaganymi w wielu wtyczkach.
+%description -l pl.UTF-8
+ModuÅ‚ pygimp umoÅ¼liwia tworzenie wtyczek dla Gimpa za pomocÄ… jÄ™zyka
+Python. W przeciwieÅ„stwie do skryptÃ³w script-fu, ktÃ³re majÄ… dostÄ™p
+tylko do funkcji w PDB (bazie danych procedur), wtyczki pygimpa majÄ…
+dostÄ™p do caÅ‚ej funkcjonalnoÅ›ci dostÄ™pnej wtyczkom w C, wÅ‚Ä…cznie z
+bezpoÅ›rednimi operacjami na pikselach, wymaganymi w wielu wtyczkach.
 
 %prep
 %setup -q -n %{module}-%{version}
