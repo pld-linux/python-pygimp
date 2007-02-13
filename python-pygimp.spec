@@ -1,6 +1,6 @@
 %define	module	pygimp
 Summary:	A Python extension allowing you to write Gimp plugins in Python
-Summary(pl.UTF-8):   Rozszerzenie Pythona pozwalające na pisanie wtyczek do Gimpa w Pythonie
+Summary(pl.UTF-8):	Rozszerzenie Pythona pozwalające na pisanie wtyczek do Gimpa w Pythonie
 Name:		python-%{module}
 Version:	1.2
 Release:	2
